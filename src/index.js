@@ -27,6 +27,9 @@ import {dirname, join} from 'path'
 //modelo node 
 import {fileURLToPath} from 'url'
 
+//importar desde vistas
+import indexRoutes from './routes/index.js'
+
 const app = express()
 const __dirname = dirname(fileURLToPath(import.meta.url))
 /*
@@ -38,12 +41,13 @@ c:\xampp\htdocs\Proyecto3-NODEJS\src\views
 app.set('views', join(__dirname, 'views'))
 //antes de get establecer el motor de plantillas que permite extender html y enviarlo al navegador
 app.set('view engine', 'ejs')
+app.use(indexRoutes)
 
 /*  antiguo comando para hola mundo
 app.get('/', (req,res) => res.send('hola mundo'))  */
 
-// acutal comando a dejar
-app.get('/', (req,res) => res.render('index.ejs'))
+
+
 app.listen(3000)
 //mensaje a mostrar en pagina web
 //localhost:3000
