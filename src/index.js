@@ -1,6 +1,6 @@
-// se debe tener instalado node.js en windows c://
-// se debe ejecutar cada uno de los comandos lo ideal en cmd
-/* creacion de archivo automatico package.json = npm init -y  === se alojara en htdocs/Proyecto3-NODEJS/package.json
+ /*se debe tener instalado node.js en windows c:
+ se debe ejecutar cada uno de los comandos lo ideal en cmd
+ creacion de archivo automatico package.json = npm init -y  === se alojara en htdocs/Proyecto3-NODEJS/package.json
    instalacion de framework express de nodejs  = npm i express morgan ejs  === sumara mas codigo en package.json
    instalacion nodemon =  npm i nodemon -D  = sumara mas codigo a package.json
 
@@ -11,22 +11,39 @@
      "scripts": {
     "dev": "nodemon src/index.js" = sumar este comando eliminar el que esta por defecto
   },
-
   modificar en package.json
   {
                       "description": "",
                       "main": "index.js",
 mensaje para agregar= "type": "module",
-
 por ultimo ejecutar el comando en cmd
 npm run dev
 con esto deberia actualizar cada cambio en consola
-*/
+dejar este codigo para que figure en consola*/
 
-//dejar este codigo para que figure en consola
 import express from 'express'
+//condigo node crea funcion dirname para crear una ruta absoluta como htdocs/proyecto/css/archivo.
+import {dirname, join} from 'path'
+//modelo node 
+import {fileURLToPath} from 'url'
+
 const app = express()
-app.get('/', (req,res) => res.send('hola mundo'))   
+const __dirname = dirname(fileURLToPath(import.meta.url))
+/*
+console.log (join(__dirname, 'views'))
+de esta forma en consola se vera la ruta creada
+c:\xampp\htdocs\Proyecto3-NODEJS\src\views
+*/
+//concatenar desde la constante creada 
+app.set('views', join(__dirname, 'views'))
+//antes de get establecer el motor de plantillas que permite extender html y enviarlo al navegador
+app.set('view engine', 'ejs')
+
+/*  antiguo comando para hola mundo
+app.get('/', (req,res) => res.send('hola mundo'))  */
+
+// acutal comando a dejar
+app.get('/', (req,res) => res.render('index.ejs'))
 app.listen(3000)
 //mensaje a mostrar en pagina web
 //localhost:3000
