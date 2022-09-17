@@ -46,6 +46,8 @@ app.use(indexRoutes)
 /*  antiguo comando para hola mundo
 app.get('/', (req,res) => res.send('hola mundo'))  */
 
+app.use(express.static(join(__dirname, 'public')))
+
 
 
 app.listen(3000)

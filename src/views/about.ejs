@@ -5,12 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> <%= title %> </title>
+    <%- include('partials/head') %>
 </head>
 <body>
-
     <%- include('partials/navigation') %>
-    <h2>Prueba de conexion desde pagina about.ejs</h2>
-    
+    <main class="vh-100 container pt-2 text-center d-flex justify-content-center align-items-center">
+        <section>
+          <h1 class="display-1">ACERCA</h1>
+          <p>
+TEXTO QUE IRA PARA ACERCA....
+          </p>
+        </section>
+      </main>
+      <%- include('partials/footer') %>
 </body>
-<%- include('partials/footer') %>
+
 </html>

@@ -5,12 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> <%= title %> </title>
+    <%- include('partials/head') %>
 </head>
 <body>
+    
     <%- include('partials/navigation') %>
-
-    <h2>Prueba de conexion desde pagina index.ejs</h2>
-   
+    <header
+    class="container vh-100 d-flex justify-content-center align-items-center"
+  >
+    <div class="d-flex flex-column justify-content-center align-items-center">
+      <!-- w-25 achica la imagen -->
+      <img src="/img/fazt.png" alt="" class="w-25" />
+      <!--  se agrega un h1 con las siguientes caracteristicas: display titulo grande // margen abajo de 5
+          text uppercase texto en mayusculas // fw-bold para que resalte-->
+      <h1 class="display-1 my-5 text-uppercase fw-bold">fazt</h1>
+      <a href="/about" class="btn btn-primary w-25">ACERCA</a>
+    </div>
+  </header>
+  <%- include('partials/footer') %>
 </body>
-<%- include('partials/footer') %>
+
 </html>
